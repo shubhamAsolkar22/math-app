@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+
+<body>
+
+<div id='d2' style="position:absolute; top:100px; left:200px; z-index:1"> 
+<input type="image" style="box-shadow: 5px 5px 8px #111111;" onclick='incb()'src="ball.jpg" alt="Submit" width="48" height="48">
+<canvas id="b" width="200" height="600" style="border:0px solid #d3d3d3;">
+</div>
+
+<div id='d3' style="position:absolute; top:100px; left:510px; z-index:1"> 
+<input type="image" style="box-shadow: 5px 5px 8px #111111;" onclick='incc()'src="ball.jpg" alt="Submit" width="48" height="48">
+<canvas id="c" width="200" height="600" style="border:0px solid #d3d3d3;">
+</div>
+<div id='d4' style="position:absolute; top:100px; left:920px; z-index:1"> 
+<input type="image" style="box-shadow: 5px 5px 8px #111111;" onclick='incans()' src="question.png" alt="Submit" width="48" height="48">
+<canvas id="answer" width="200" height="600" style="border:0px solid #d3d3d3;">
+</div>
+
+<div id='d5' style="position:absolute; top:780px; left:590px; z-index:1"> 
+<canvas id="equ" width="200" height="100" style="border:0px solid #d3d3d3;">
+</div>
+
+<div id='d6' style="position:absolute; top:200px; left:450px; z-index:1"> 
+<canvas id="pl" width="70" height="80" style="border:0px solid #d3d3d3;">
+</div>
+
+<div id='d7' style="position:absolute; top:780px; left:590px; z-index:1"> 
+<canvas id="equalto" width="200" height="100" style="border:0px solid #d3d3d3;">
+</div>
+
+<div id='d8' style="position:absolute; top:200px; left:840px; z-index:1"> 
+<canvas id="eqsym" width="70" height="80" style="border:0px solid #d3d3d3;">
+</div>
+
+<div id='d4' style="position:absolute; top:10px; left:1380px; z-index:1"> 
+<input type="image" style="box-shadow: 5px 5px 8px #111111;" onclick='location.reload();' src="clear.png" alt="Submit" width="48" height="48">
+</div>
+
+<divid='d2' style="position:absolute; top:900px; left:0px; z-index:1"><p>-Math app for 4 to 6 yr old kids (Shubham Asolkar C-18)</p></div>
+<script>
+
+var h = document.getElementById("pl");
+var H = h.getContext("2d");
+H.font = "50px Arial";
+H.strokeText("+",12,50);
+
+var q = document.getElementById("eqsym");
+var Q = q.getContext("2d");
+Q.font = "50px Arial";
+Q.strokeText("=",12,50);
+
+var ax=5,ay=15,a=0;
+function incb(){
+a=a+1;
+var c = document.getElementById("b");
+var ctx = c.getContext("2d");
+ctx.clearRect(0, 0, 200, 600);
+
+ctx.moveTo(ax+22,ay);
+ctx.fillStyle = "#3370d4"; //blue
+ctx.arc((ax+10),ay,13,0,2*Math.PI);
+ctx.fill();
+
+ay=ay+34;
+if(ay>550)
+	{ax=ax+30;
+	ay=15;}
+	
+
+	
+}
+
+
+
+var bx=5,by=15,b=0;
+
+function incc(){
+b=b+1;
+var c = document.getElementById("c");
+var ctx = c.getContext("2d");
+ctx.clearRect(0, 0, 200, 600);
+
+ctx.moveTo(bx+22,by);
+
+ctx.fillStyle = "#3370d4"; //blue
+ctx.arc((bx+10),by,13,0,2*Math.PI);
+ctx.fill();
+by=by+34;
+if(by>550)
+	{bx=bx+30;
+	by=15;}
+}
+
+function incans(){
+
+
+
+var e = document.getElementById("equ");
+var eq = e.getContext("2d");
+
+var t = document.getElementById("answer");
+var T = t.getContext("2d");
+
+
+eq.clearRect(0, 0, 200, 600);
+eq.font = "40px Arial";
+eq.fillText(a+" + "+b+" = "+(a+b),10,50);
+
+var ix=5,iy=15;
+var sum = a+b;
+var shift=0;
+
+T.clearRect(0, 0, 200, 600);
+while(sum>0)
+{
+	
+	T.moveTo(ix+22,iy);
+	T.fillStyle = "#3370d4"; //blue
+	T.arc((ix+10),iy,13,0,2*Math.PI);
+	T.fill();
+	iy=iy+34;
+	if(iy>550)
+	{ix=ix+30;
+		iy=15;}
+	
+	/*shift = shift + 1;
+	if(shift==a){
+		ix=ix+35;
+		iy=15;
+	}*/
+		sum=sum-1;
+}
+
+}
+
+</script>
+
+</body>
+</html>
